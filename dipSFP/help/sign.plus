@@ -1,0 +1,24 @@
+sign.plus               package:dipSFP               R Documentation
+
+_P_o_s_i_t_i_v_e _t_r_u_c_a_t_i_o_n _f_u_n_c_t_i_o_n
+
+_D_e_s_c_r_i_p_t_i_o_n:
+
+     Given a vector, its negative elements are replaced by zero.
+
+_U_s_a_g_e:
+
+     sign.plus(x)
+
+_A_r_g_u_m_e_n_t_s:
+
+       x: A vector. 
+
+_V_a_l_u_e:
+
+     A vector with the same length as 'x'.
+
+_A_u_t_h_o_r(_s):
+
+     Na You
+

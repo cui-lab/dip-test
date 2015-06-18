@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><title>R: Modified critical bandwidth</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" type="text/css" href="../../R.css">
+</head><body>
+
+<table width="100%" summary="page for FMbw {dipSFP}"><tr><td>FMbw {dipSFP}</td><td align="right">R Documentation</td></tr></table>
+<h2>Modified critical bandwidth</h2>
+
+
+<h3>Description</h3>
+
+<p>
+Modified critical bandwidth in Fisher and Marron (2001).
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+FMbw(vec, k, lambda0 = NULL, outliers.ratio = NULL, m0 = NULL, tol = 1e-06)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>vec</code></td>
+<td>
+a vector.
+</td></tr>
+<tr valign="top"><td><code>k</code></td>
+<td>
+the number of modes.
+</td></tr>
+<tr valign="top"><td><code>lambda0,outliers.ratio,m0</code></td>
+<td>
+tuning parameters, see `Details' below.
+</td></tr>
+<tr valign="top"><td><code>tol</code></td>
+<td>
+the desired accuracy (convergence tolerance) in computing the
+modified critical bandwidth by bisection method.
+</td></tr>
+</table>
+
+<h3>Details</h3>
+
+<p>
+Fisher and Marron (2001) proposed a modified critical bandwidth
+instead of Silverman critical bandwidth (1981) to estimate the
+underlying data distribution and generate bootstrap resamples in
+smooth bootstrap algorithm. Two tuning parameters `lambda0' and `m0'
+were used to deal with the outliers problems and distinguish minor or
+major modes. As suggested in Fisher and Marron (2001),
+`lambda0' can be given directly by
+user or determined by the ratio of outliers `outliers.ratio'.
+If both of them are given, then the maximum of `lambda0' and
+`outliers.ratio/h/(2*pi)^(1/2)' is used in computation, where `h' is
+the bandwidth at which the statistic S_k is calculated. The defaults
+of `lambda0' and `outliers.ratio' are both zero. The default of `m_0'
+is 0.003.
+</p>
+
+
+<h3>Value</h3>
+
+<p>
+The value of modified critical bandwidth.</p>
+
+<h3>Author(s)</h3>
+
+<p>
+Na You
+</p>
+
+
+<h3>References</h3>
+
+<p>
+Fisher, N. I. and Marron, J. S. (2001).
+Mode testing via the excess mass estimate. Biometrika, 88(2):499&ndash;517.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+x &lt;- rnorm(100,0,1)
+FMbw(x,1)
+FMbw(x,1,m0=0)
+</pre>
+
+
+
+<hr><div align="center">[Package <em>dipSFP</em> version 1.0 <a href="00Index.html">Index</a>]</div>
+
+</body></html>

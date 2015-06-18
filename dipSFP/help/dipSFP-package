@@ -1,0 +1,31 @@
+dipSFP-package            package:dipSFP            R Documentation
+
+_S_F_P _d_e_t_e_c_t_i_o_n _b_a_s_e_d _o_n _d_i_p _s_t_a_t_i_s_t_i_c
+
+_D_e_s_c_r_i_p_t_i_o_n:
+
+     Given a matrix of microarray data, SFPs are detected based on the
+     dip statistic. The null distribution of dip statistic is 
+     estimated by smooth bootstrap algorithm. P values are adjusted
+     using false discovery rate criteria for FDR control.
+
+_D_e_t_a_i_l_s:
+
+
+       Package:   dipSFP
+       Type:      Package
+       Version:   1.0
+       Date:      2010-05-05
+       LazyLoad:  yes
+
+_A_u_t_h_o_r(_s):
+
+     Na You
+
+     Maintainer: Na You <nayou@ucr.edu>
+
+_R_e_f_e_r_e_n_c_e_s:
+
+     Cui et al. Single Feature Polymorhpism Detection using Recombinant
+     Inbred Line microarray expression data.
+

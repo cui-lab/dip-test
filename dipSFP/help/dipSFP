@@ -1,0 +1,85 @@
+dipSFP                package:dipSFP                R Documentation
+
+_S_F_P _d_e_t_e_c_t_i_o_n _p_r_o_c_e_d_u_r_e _b_a_s_e_d _o_n _d_i_p _s_t_a_t_i_s_t_i_c
+
+_D_e_s_c_r_i_p_t_i_o_n:
+
+     SFP detection procedure based on dip statistic, where the null
+     distribution of dip statistic is estimated by smooth bootstrap
+     algorithm.
+
+_U_s_a_g_e:
+
+     dipSFP(dat, nboot, lambda0 = NULL, outliers.ratio = NULL, m0 = NULL,
+     pvalue = TRUE, tol = 1e-06)
+
+_A_r_g_u_m_e_n_t_s:
+
+     dat: a matrix of microarray data to be analyzed, for example, the
+          estimated binding affynity values or SFPdev values, where
+          each row corresponds to one probe and each column corresponds
+          to one chip. 
+
+   nboot: the number of bootstrap replications. 
+
+lambda0,outliers.ratio,m0: tuning parameters, see `Details' in 'FMbw'.
+
+  pvalue: logical; will p values be computed?  
+
+     tol: the desired accuracy (convergence tolerance) in computing the
+          modified critical bandwidth by bisection method. 
+
+_D_e_t_a_i_l_s:
+
+     Dip statistic is computed by 'dip' in R package `diptest'.
+
+_V_a_l_u_e:
+
+     A list with four components if 'pvalue' is TRUE,
+
+dip.statistics: dip statistic values for probes
+
+null.distribution: estimated null distribution of dip statistic
+
+p.values: p values
+
+adjusted.pvalues: adjusted p values using the false discovery rate
+          criterion
+
+
+     If 'pvalue' is FALSE, only 'dip.statistics' and
+     'null.distribution' are returned.
+
+_A_u_t_h_o_r(_s):
+
+     Na You
+
+_R_e_f_e_r_e_n_c_e_s:
+
+     Cui et al. Single Feature Polymorhpism Detection using Recombinant
+     Inbred Line microarray expression data.
+
+     Fisher, N. I. and Marron, J. S. (2001). Mode testing via the
+     excess mass estimate. Biometrika, 88(2):499-517.
+
+     Hartigan, J. A. and Hartigan, P. M. (1985). The dip test of
+     unimodality. The Annals of Statistics, 13(1):70–84.
+
+_S_e_e _A_l_s_o:
+
+     'FMbw'
+
+_E_x_a_m_p_l_e_s:
+
+     n <- 100
+     m.nonSFP <- 98
+     m.SFP <- 2
+
+     dat1 <- matrix(rgamma(m.nonSFP*n,2,4),m.nonSFP,n)
+     dat2 <- cbind(matrix(rgamma(m.SFP*n/2,2,4),m.SFP,n/2),
+                   matrix(rgamma(m.SFP*n/2,20,4),m.SFP,n/2))
+     dat <- rbind(dat1,dat2)
+
+     dipSFP(dat,nboot=20)
+     dipSFP(dat,nboot=20,outliers.ratio=0.01)
+

@@ -1,0 +1,138 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><title>R: SFP detection procedure based on dip statistic</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" type="text/css" href="../../R.css">
+</head><body>
+
+<table width="100%" summary="page for dipSFP {dipSFP}"><tr><td>dipSFP {dipSFP}</td><td align="right">R Documentation</td></tr></table>
+<h2>SFP detection procedure based on dip statistic</h2>
+
+
+<h3>Description</h3>
+
+<p>
+SFP detection procedure based on dip statistic, where the null
+distribution of dip statistic is estimated by smooth bootstrap algorithm.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+dipSFP(dat, nboot, lambda0 = NULL, outliers.ratio = NULL, m0 = NULL,
+pvalue = TRUE, tol = 1e-06)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>dat</code></td>
+<td>
+a matrix of microarray data to be analyzed, for example,
+the estimated binding affynity values or SFPdev values, where each row
+corresponds to one probe and each column corresponds to one chip.
+</td></tr>
+<tr valign="top"><td><code>nboot</code></td>
+<td>
+the number of bootstrap replications.
+</td></tr>
+<tr valign="top"><td><code>lambda0,outliers.ratio,m0</code></td>
+<td>
+tuning parameters, see `Details' in <code>FMbw</code>.</td></tr>
+<tr valign="top"><td><code>pvalue</code></td>
+<td>
+logical; will p values be computed? 
+</td></tr>
+<tr valign="top"><td><code>tol</code></td>
+<td>
+the desired accuracy (convergence tolerance) in computing the
+modified critical bandwidth by bisection method.
+</td></tr>
+</table>
+
+<h3>Details</h3>
+
+<p>
+Dip statistic is computed by <code>dip</code> in R package `diptest'.
+</p>
+
+
+<h3>Value</h3>
+
+<p>
+A list with four components if <code>pvalue</code> is TRUE,
+</p>
+<table summary="R argblock">
+<tr valign="top"><td><code>dip.statistics</code></td>
+<td>
+dip statistic values for probes</td></tr>
+<tr valign="top"><td><code>null.distribution</code></td>
+<td>
+estimated null distribution of dip statistic</td></tr>
+<tr valign="top"><td><code>p.values</code></td>
+<td>
+p values</td></tr>
+<tr valign="top"><td><code>adjusted.pvalues</code></td>
+<td>
+adjusted p values using the false discovery
+rate criterion</td></tr>
+</table>
+<p>
+
+<br>
+If <code>pvalue</code> is FALSE, only <code>dip.statistics</code> and
+<code>null.distribution</code> are returned.</p>
+
+<h3>Author(s)</h3>
+
+<p>
+Na You
+</p>
+
+
+<h3>References</h3>
+
+<p>
+Cui et al.
+Single Feature Polymorhpism Detection using Recombinant Inbred Line
+microarray expression data.
+</p>
+<p>
+Fisher, N. I. and Marron, J. S. (2001).
+Mode testing via the excess mass estimate. Biometrika, 88(2):499&ndash;517.
+</p>
+<p>
+Hartigan, J. A. and Hartigan, P. M. (1985).
+The dip test of unimodality. The Annals of Statistics, 13(1):70–84.
+</p>
+
+
+<h3>See Also</h3>
+
+<p>
+<code><a href="FMbw.html">FMbw</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+n &lt;- 100
+m.nonSFP &lt;- 98
+m.SFP &lt;- 2
+
+dat1 &lt;- matrix(rgamma(m.nonSFP*n,2,4),m.nonSFP,n)
+dat2 &lt;- cbind(matrix(rgamma(m.SFP*n/2,2,4),m.SFP,n/2),
+              matrix(rgamma(m.SFP*n/2,20,4),m.SFP,n/2))
+dat &lt;- rbind(dat1,dat2)
+
+dipSFP(dat,nboot=20)
+dipSFP(dat,nboot=20,outliers.ratio=0.01)
+</pre>
+
+
+
+<hr><div align="center">[Package <em>dipSFP</em> version 1.0 <a href="00Index.html">Index</a>]</div>
+
+</body></html>

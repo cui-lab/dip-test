@@ -1,0 +1,9 @@
+FMbw                    Modified critical bandwidth
+c.gamma                 Factor 'c' for Gamma density
+c.lognorm               Factor 'c' for log-normal density
+c.norm                  Factor 'c' for normal density
+c.t                     Factor 'c' for student's t density
+dipSFP                  SFP detection procedure based on dip statistic
+minimax                 Minimax function
+modes                   Modes of density function
+sign.plus               Positive trucation function

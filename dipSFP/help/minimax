@@ -1,0 +1,37 @@
+minimax                package:dipSFP                R Documentation
+
+_M_i_n_i_m_a_x _f_u_n_c_t_i_o_n
+
+_D_e_s_c_r_i_p_t_i_o_n:
+
+     Determine if each point in a line is a local maximum or minimum.
+
+_U_s_a_g_e:
+
+     minimax(func)
+
+_A_r_g_u_m_e_n_t_s:
+
+    func: A matrix. Each row indicates the (x,y)-coordinate of one
+          point. 
+
+_V_a_l_u_e:
+
+     A vector with the same length as the first dimension of matrix
+     'func', composed of -1, 1, and 0, indicating respectively the
+     corresponding point is a local minimum, maximum or none of them.
+
+_A_u_t_h_o_r(_s):
+
+     Na You
+
+_R_e_f_e_r_e_n_c_e_s:
+
+     Fisher, N. I. and Marron, J. S. (2001). Mode testing via the
+     excess mass estimate. Biometrika, 88(2):499-517.
+
+_E_x_a_m_p_l_e_s:
+
+     x <- rnorm(10,0,1)
+     minimax(cbind(seq(x),x))
+

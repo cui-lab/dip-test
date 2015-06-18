@@ -1,0 +1,34 @@
+\HeaderA{minimax}{Minimax function}{minimax}
+\begin{Description}\relax
+Determine if each point in a line is a local maximum or minimum.
+\end{Description}
+\begin{Usage}
+\begin{verbatim}
+minimax(func)
+\end{verbatim}
+\end{Usage}
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{func}] A matrix. Each row indicates the (x,y)-coordinate of one point.
+
+\end{ldescription}
+\end{Arguments}
+\begin{Value}
+A vector with the same length as the first dimension of matrix
+\code{func}, composed of -1, 1, and 0, indicating respectively
+the corresponding point is a local minimum, maximum or none of them.
+\end{Value}
+\begin{Author}\relax
+Na You
+\end{Author}
+\begin{References}\relax
+Fisher, N. I. and Marron, J. S. (2001).
+Mode testing via the excess mass estimate. Biometrika, 88(2):499--517.
+\end{References}
+\begin{Examples}
+\begin{ExampleCode}
+x <- rnorm(10,0,1)
+minimax(cbind(seq(x),x))
+\end{ExampleCode}
+\end{Examples}
+

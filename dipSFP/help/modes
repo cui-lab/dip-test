@@ -1,0 +1,50 @@
+modes                 package:dipSFP                 R Documentation
+
+_M_o_d_e_s _o_f _d_e_n_s_i_t_y _f_u_n_c_t_i_o_n
+
+_D_e_s_c_r_i_p_t_i_o_n:
+
+     Given a vector of data, find the `major' modes of its Gaussian
+     kernal density estimate with specified bandwidth, exluding the
+     modes caused by outliers and `minor' modes with small masses.
+
+_U_s_a_g_e:
+
+     modes(vec, bw, lambda0 = NULL, outliers.ratio = NULL, m0 = NULL)
+
+_A_r_g_u_m_e_n_t_s:
+
+     vec: a vector. 
+
+      bw: bandwidth used in the Gaussion kernal density estimate. 
+
+lambda0, outliers.ratio, m0: tuning parameters. See `Detailes' in
+          'FMbw'. 
+
+_V_a_l_u_e:
+
+     A vector, each element of which indicates the location of one
+     mode.
+
+_A_u_t_h_o_r(_s):
+
+     Na You
+
+_R_e_f_e_r_e_n_c_e_s:
+
+     Fisher, N. I. and Marron, J. S. (2001). Mode testing via the
+     excess mass estimate. Biometrika, 88(2):499-517.
+
+_S_e_e _A_l_s_o:
+
+     'FMbw'
+
+_E_x_a_m_p_l_e_s:
+
+     x <- rnorm(100,0,1)
+     h1 <- FMbw(x,k=1)
+     modes(x,bw=h1)
+
+     h2 <- FMbw(x,k=2)
+     modes(x,bw=h2)
+

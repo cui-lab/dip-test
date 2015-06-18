@@ -1,0 +1,16 @@
+Package: dipSFP
+Type: Package
+Title: SFP detection based on dip statistic
+Version: 1.0
+Date: 2010-05-05
+Author: Na You
+Maintainer: Na You <nayou@ucr.edu>
+Description: Given a matrix of microarray data, SFPs are detected based
+        on the dip statistic. The null distribution of dip statistic is
+        estimated by smooth bootstrap algorithm. P values are adjusted
+        using false discovery rate criteria for FDR control.
+Depends: diptest
+License:
+LazyLoad: yes
+Packaged: 2010-05-05 18:47:59 UTC; xinping
+Built: R 2.9.1; ; 2010-05-05 18:48:00 UTC; windows

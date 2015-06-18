@@ -1,0 +1,55 @@
+\HeaderA{FMbw}{Modified critical bandwidth}{FMbw}
+\begin{Description}\relax
+Modified critical bandwidth in Fisher and Marron (2001).
+\end{Description}
+\begin{Usage}
+\begin{verbatim}
+FMbw(vec, k, lambda0 = NULL, outliers.ratio = NULL, m0 = NULL, tol = 1e-06)
+\end{verbatim}
+\end{Usage}
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{vec}] a vector.
+
+\item[\code{k}] the number of modes.
+
+\item[\code{lambda0,outliers.ratio,m0}] tuning parameters, see `Details' below.
+
+\item[\code{tol}] the desired accuracy (convergence tolerance) in computing the
+modified critical bandwidth by bisection method.
+
+\end{ldescription}
+\end{Arguments}
+\begin{Details}\relax
+Fisher and Marron (2001) proposed a modified critical bandwidth
+instead of Silverman critical bandwidth (1981) to estimate the
+underlying data distribution and generate bootstrap resamples in
+smooth bootstrap algorithm. Two tuning parameters `lambda0' and `m0'
+were used to deal with the outliers problems and distinguish minor or
+major modes. As suggested in Fisher and Marron (2001),
+`lambda0' can be given directly by
+user or determined by the ratio of outliers `outliers.ratio'.
+If both of them are given, then the maximum of `lambda0' and
+`outliers.ratio/h/(2*pi)\textasciicircum{}(1/2)' is used in computation, where `h' is
+the bandwidth at which the statistic S\_k is calculated. The defaults
+of `lambda0' and `outliers.ratio' are both zero. The default of `m\_0'
+is 0.003.
+\end{Details}
+\begin{Value}
+The value of modified critical bandwidth.
+\end{Value}
+\begin{Author}\relax
+Na You
+\end{Author}
+\begin{References}\relax
+Fisher, N. I. and Marron, J. S. (2001).
+Mode testing via the excess mass estimate. Biometrika, 88(2):499--517.
+\end{References}
+\begin{Examples}
+\begin{ExampleCode}
+x <- rnorm(100,0,1)
+FMbw(x,1)
+FMbw(x,1,m0=0)
+\end{ExampleCode}
+\end{Examples}
+

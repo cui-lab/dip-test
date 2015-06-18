@@ -1,0 +1,78 @@
+\HeaderA{dipSFP}{SFP detection procedure based on dip statistic}{dipSFP}
+\begin{Description}\relax
+SFP detection procedure based on dip statistic, where the null
+distribution of dip statistic is estimated by smooth bootstrap algorithm.
+\end{Description}
+\begin{Usage}
+\begin{verbatim}
+dipSFP(dat, nboot, lambda0 = NULL, outliers.ratio = NULL, m0 = NULL,
+pvalue = TRUE, tol = 1e-06)
+\end{verbatim}
+\end{Usage}
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{dat}] a matrix of microarray data to be analyzed, for example,
+the estimated binding affynity values or SFPdev values, where each row
+corresponds to one probe and each column corresponds to one chip.
+
+\item[\code{nboot}] the number of bootstrap replications.
+
+\item[\code{lambda0,outliers.ratio,m0}] tuning parameters, see `Details' in \code{FMbw}.
+\item[\code{pvalue}] logical; will p values be computed? 
+
+\item[\code{tol}] the desired accuracy (convergence tolerance) in computing the
+modified critical bandwidth by bisection method.
+
+\end{ldescription}
+\end{Arguments}
+\begin{Details}\relax
+Dip statistic is computed by \code{dip} in R package `diptest'.
+\end{Details}
+\begin{Value}
+A list with four components if \code{pvalue} is TRUE,
+
+\begin{ldescription}
+\item[\code{dip.statistics}] dip statistic values for probes
+\item[\code{null.distribution}] estimated null distribution of dip statistic
+\item[\code{p.values}] p values
+\item[\code{adjusted.pvalues}] adjusted p values using the false discovery
+rate criterion
+\end{ldescription}
+
+
+If \code{pvalue} is FALSE, only \code{dip.statistics} and
+\code{null.distribution} are returned.
+\end{Value}
+\begin{Author}\relax
+Na You
+\end{Author}
+\begin{References}\relax
+Cui et al.
+Single Feature Polymorhpism Detection using Recombinant Inbred Line
+microarray expression data.
+
+Fisher, N. I. and Marron, J. S. (2001).
+Mode testing via the excess mass estimate. Biometrika, 88(2):499--517.
+
+Hartigan, J. A. and Hartigan, P. M. (1985).
+The dip test of unimodality. The Annals of Statistics, 13(1):70–84.
+\end{References}
+\begin{SeeAlso}\relax
+\code{\LinkA{FMbw}{FMbw}}
+\end{SeeAlso}
+\begin{Examples}
+\begin{ExampleCode}
+n <- 100
+m.nonSFP <- 98
+m.SFP <- 2
+
+dat1 <- matrix(rgamma(m.nonSFP*n,2,4),m.nonSFP,n)
+dat2 <- cbind(matrix(rgamma(m.SFP*n/2,2,4),m.SFP,n/2),
+              matrix(rgamma(m.SFP*n/2,20,4),m.SFP,n/2))
+dat <- rbind(dat1,dat2)
+
+dipSFP(dat,nboot=20)
+dipSFP(dat,nboot=20,outliers.ratio=0.01)
+\end{ExampleCode}
+\end{Examples}
+

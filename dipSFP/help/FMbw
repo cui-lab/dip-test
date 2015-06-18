@@ -1,0 +1,57 @@
+FMbw                 package:dipSFP                 R Documentation
+
+_M_o_d_i_f_i_e_d _c_r_i_t_i_c_a_l _b_a_n_d_w_i_d_t_h
+
+_D_e_s_c_r_i_p_t_i_o_n:
+
+     Modified critical bandwidth in Fisher and Marron (2001).
+
+_U_s_a_g_e:
+
+     FMbw(vec, k, lambda0 = NULL, outliers.ratio = NULL, m0 = NULL, tol = 1e-06)
+
+_A_r_g_u_m_e_n_t_s:
+
+     vec: a vector. 
+
+       k: the number of modes. 
+
+lambda0,outliers.ratio,m0: tuning parameters, see `Details' below. 
+
+     tol: the desired accuracy (convergence tolerance) in computing the
+          modified critical bandwidth by bisection method. 
+
+_D_e_t_a_i_l_s:
+
+     Fisher and Marron (2001) proposed a modified critical bandwidth
+     instead of Silverman critical bandwidth (1981) to estimate the
+     underlying data distribution and generate bootstrap resamples in
+     smooth bootstrap algorithm. Two tuning parameters `lambda0' and
+     `m0' were used to deal with the outliers problems and distinguish
+     minor or major modes. As suggested in Fisher and Marron (2001),
+     `lambda0' can be given directly by user or determined by the ratio
+     of outliers `outliers.ratio'. If both of them are given, then the
+     maximum of `lambda0' and `outliers.ratio/h/(2*pi)^(1/2)' is used
+     in computation, where `h' is the bandwidth at which the statistic
+     S_k is calculated. The defaults of `lambda0' and `outliers.ratio'
+     are both zero. The default of `m_0' is 0.003.
+
+_V_a_l_u_e:
+
+     The value of modified critical bandwidth.
+
+_A_u_t_h_o_r(_s):
+
+     Na You
+
+_R_e_f_e_r_e_n_c_e_s:
+
+     Fisher, N. I. and Marron, J. S. (2001). Mode testing via the
+     excess mass estimate. Biometrika, 88(2):499-517.
+
+_E_x_a_m_p_l_e_s:
+
+     x <- rnorm(100,0,1)
+     FMbw(x,1)
+     FMbw(x,1,m0=0)
+

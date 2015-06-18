@@ -1,0 +1,59 @@
+Entry: FMbw
+Aliases: FMbw
+Keywords: 
+Description: Modified critical bandwidth
+URL: ../../../library/dipSFP/html/FMbw.html
+
+Entry: c.gamma
+Aliases: c.gamma
+Keywords: 
+Description: Factor 'c' for Gamma density
+URL: ../../../library/dipSFP/html/c.gamma.html
+
+Entry: c.lognorm
+Aliases: c.lognorm
+Keywords: 
+Description: Factor 'c' for log-normal density
+URL: ../../../library/dipSFP/html/c.lognorm.html
+
+Entry: c.norm
+Aliases: c.norm
+Keywords: 
+Description: Factor 'c' for normal density
+URL: ../../../library/dipSFP/html/c.norm.html
+
+Entry: c.t
+Aliases: c.t
+Keywords: 
+Description: Factor 'c' for student's t density
+URL: ../../../library/dipSFP/html/c.t.html
+
+Entry: dipSFP-internal
+Aliases: 
+Keywords: internal
+Description: Internal dipSFP objects
+URL: ../../../library/dipSFP/html/dipSFP-internal.html
+
+Entry: dipSFP
+Aliases: dipSFP
+Keywords: 
+Description: SFP detection procedure based on dip statistic
+URL: ../../../library/dipSFP/html/dipSFP.html
+
+Entry: minimax
+Aliases: minimax
+Keywords: 
+Description: Minimax function
+URL: ../../../library/dipSFP/html/minimax.html
+
+Entry: modes
+Aliases: modes
+Keywords: 
+Description: Modes of density function
+URL: ../../../library/dipSFP/html/modes.html
+
+Entry: sign.plus
+Aliases: sign.plus
+Keywords: 
+Description: Positive trucation function
+URL: ../../../library/dipSFP/html/sign.plus.html

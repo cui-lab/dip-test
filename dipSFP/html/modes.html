@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><title>R: Modes of density function</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" type="text/css" href="../../R.css">
+</head><body>
+
+<table width="100%" summary="page for modes {dipSFP}"><tr><td>modes {dipSFP}</td><td align="right">R Documentation</td></tr></table>
+<h2>Modes of density function</h2>
+
+
+<h3>Description</h3>
+
+<p>
+Given a vector of data, find the `major' modes of its Gaussian kernal
+density estimate with specified bandwidth, exluding the modes caused
+by outliers and `minor' modes with small masses.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+modes(vec, bw, lambda0 = NULL, outliers.ratio = NULL, m0 = NULL)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>vec</code></td>
+<td>
+a vector.
+</td></tr>
+<tr valign="top"><td><code>bw</code></td>
+<td>
+bandwidth used in the Gaussion kernal density estimate.
+</td></tr>
+<tr valign="top"><td><code>lambda0, outliers.ratio, m0</code></td>
+<td>
+tuning parameters. See `Detailes' in <code>FMbw</code>.
+</td></tr>
+</table>
+
+<h3>Value</h3>
+
+<p>
+A vector, each element of which indicates the location of one mode.</p>
+
+<h3>Author(s)</h3>
+
+<p>
+Na You
+</p>
+
+
+<h3>References</h3>
+
+<p>
+Fisher, N. I. and Marron, J. S. (2001).
+Mode testing via the excess mass estimate. Biometrika, 88(2):499&ndash;517.
+</p>
+
+
+<h3>See Also</h3>
+
+<p>
+<code><a href="FMbw.html">FMbw</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+x &lt;- rnorm(100,0,1)
+h1 &lt;- FMbw(x,k=1)
+modes(x,bw=h1)
+
+h2 &lt;- FMbw(x,k=2)
+modes(x,bw=h2)
+</pre>
+
+
+
+<hr><div align="center">[Package <em>dipSFP</em> version 1.0 <a href="00Index.html">Index</a>]</div>
+
+</body></html>

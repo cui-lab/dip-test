@@ -1,0 +1,45 @@
+\HeaderA{modes}{Modes of density function}{modes}
+\begin{Description}\relax
+Given a vector of data, find the `major' modes of its Gaussian kernal
+density estimate with specified bandwidth, exluding the modes caused
+by outliers and `minor' modes with small masses.
+\end{Description}
+\begin{Usage}
+\begin{verbatim}
+modes(vec, bw, lambda0 = NULL, outliers.ratio = NULL, m0 = NULL)
+\end{verbatim}
+\end{Usage}
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{vec}] a vector.
+
+\item[\code{bw}] bandwidth used in the Gaussion kernal density estimate.
+
+\item[\code{lambda0, outliers.ratio, m0}] tuning parameters. See `Detailes' in \code{FMbw}.
+
+\end{ldescription}
+\end{Arguments}
+\begin{Value}
+A vector, each element of which indicates the location of one mode.
+\end{Value}
+\begin{Author}\relax
+Na You
+\end{Author}
+\begin{References}\relax
+Fisher, N. I. and Marron, J. S. (2001).
+Mode testing via the excess mass estimate. Biometrika, 88(2):499--517.
+\end{References}
+\begin{SeeAlso}\relax
+\code{\LinkA{FMbw}{FMbw}}
+\end{SeeAlso}
+\begin{Examples}
+\begin{ExampleCode}
+x <- rnorm(100,0,1)
+h1 <- FMbw(x,k=1)
+modes(x,bw=h1)
+
+h2 <- FMbw(x,k=2)
+modes(x,bw=h2)
+\end{ExampleCode}
+\end{Examples}
+
